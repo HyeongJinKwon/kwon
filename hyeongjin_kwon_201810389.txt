@@ -1,0 +1,66 @@
+< How To Record Everything In Terminal >
+
+This tutorial shows how to record everything in terminal loacally to be played
+later both with script and ttyrec commands. While script is included in some
+Linux distributions and allows to manage the playing speed, ttyrec requires
+less parameters to record and play.
+
+How To Record Everything in Terminal
+
+The first option to record terminal activity on this tutorial focuses on the
+command Script already included in many Linux distributions by default.
+The easiest way to use it without flags allows to read the log file using
+the cat command, to run it just execute the command specifying the output
+file name.
+
+$ script <LogFile>
+
+In my case I saved it as "linuxhintlog.txt" as in the example below:
+
+$ script linuxhintlog.txt
+
+You'll be able to see the script command started as shown in the image above,
+now you can type any command, then you can sopt recording by typing "exit".
+At this stage you aren't to play the session in real time, yet you can read it
+using the cat command:
+
+$ cat linuxhintlog.txt
+
+In order to play the session rather than reading it you need to add
+the --timing option specifying the time file name additionally to the output
+file name:
+
+$ script --timing=<TimeFile> <OutputFile>
+
+In my case I saved the time file as TIMEFILE and the output file as LHoutput.txt 
+as in the following example:
+
+$ script --timing=TIMEFILE LHoutput.txt
+
+To play the recorded session the command is "scriptreplay" followed by the
+--timing flag, time file name, --typescript flag and output file names
+as in the example below:
+
+$ scriptreplay --timing <TimeFile> --typescript <OutputFile>
+
+In the following example the time file is TIMEFILE and LHoutput.txt the output 
+file:
+
+$ scriptreplay --timing TIMEFILE --typescript LHoutput.txt
+
+You may want to speed up or slow the playing speed, this can be achieved by using 
+the -m (--maxdelay) and -d (--divisor) flags. With the -m option you can define
+the timing in seconds to play each activity, while the -d flag allows to divide it.
+ 
+The following example shows how to play allowing a maximum of a second delay per
+command:
+
+$ scriptreplay -m 1 --timing TIMEFILE --typescript LHoutput.txt
+
+The next examples divides the real timing for the factor you specify, in this case 
+I will double the speed by specifying the factor "2"
+
+$ scriptreplay -d 2 --timing TIMEFILE --typescript LHoutput.txt
+
+Of course to notice the difference you must try it by yourself.
+  

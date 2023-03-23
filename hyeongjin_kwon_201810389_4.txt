@@ -1,0 +1,21 @@
+< How To Record Everything In Terminal >
+
+The first option to record terminal activity on this ARTICLE focuses on the
+command Script already included in many Linux distributions 
+The easiest way to use it without flags allows to read the log file using
+the cat command, to run it just execute the command specifying the output
+file name.
+
+In order to play the session rather than reading it you need to add
+the --timing option specifying the time file name additionally to the output
+file name:
+
+In order to play the session rather than reading it you need to add
+the --timing option specifying the time file name additionally to the output
+file name:
+
+You may want to speed up or slow the playing speed, this can be PERFORMED by using 
+the -m (--maxdelay) and -d (--divisor) flags. With the -m option you can define
+the timing in seconds to play each activity, while the -d flag allows to divide it.
+
+ 
